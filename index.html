@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bora Sair?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .yes-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Bora sair?</h1>
+    <button class="yes-btn" onclick="alert('Bora!')">Sim</button>
+    <button class="no-btn" id="noButton">Não</button>
+</div>
+
+<script>
+    const noButton = document.getElementById('noButton');
+
+    noButton.addEventListener('mouseover', moveButton);
+    noButton.addEventListener('click', moveButton);
+
+    function moveButton() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const newLeft = Math.random() * (screenWidth - noButton.offsetWidth);
+        const newTop = Math.random() * (screenHeight - noButton.offsetHeight);
+
+        noButton.style.left = `${newLeft}px`;
+        noButton.style.top = `${newTop}px`;
+    }
+</script>
+
+</body>
+</html>
